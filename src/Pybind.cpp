@@ -1,4 +1,5 @@
 #include "Pybind.hpp"
+#include <pybind11/iostream.h>
 
 void registerPy(pybind11::module &m)
 {
@@ -58,7 +59,9 @@ void registerPy(pybind11::module &m)
         .def("show_board",
              &XqBoard::show_board,
              py::arg("viewDetail") = false,
-             py::arg("title") = "比赛");
+             py::arg("title") = "比赛",
+             py::call_guard<py::scoped_ostream_redirect,
+                            py::scoped_estream_redirect>());
 
     m.def("movestr2action", &str2action, "移动字符串转换为其映射序号")
         .def("action2movestr", &action2str, "将映射序号转换为代表移动的4位数字符串")

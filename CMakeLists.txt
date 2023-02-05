@@ -99,7 +99,6 @@ if (MUZERO_TEST)
         src/test_mark_2022_plus.cpp
     
         src/test_xboard.cpp
-        src/test_temp.cpp
     )
     
     add_cpp_tests(test_ muzeroxq ${XQ_TEST_SOURCES})
