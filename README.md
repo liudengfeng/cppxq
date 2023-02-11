@@ -8,7 +8,11 @@ Chinese chess game(xiangqi)
 ## install 
 
 ```bash
+pip install --upgrade setuptools
 git clone https://github.com/liudengfeng/xqcpp.git
 cd xqcpp
 pip install .
+
+# test 
+pip install pytest pytest-html
 ```
