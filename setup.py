@@ -140,6 +140,6 @@ setup(
     ext_modules=[CMakeExtension("xqcpp")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
-    extras_require={"test": ["pytest>=7.1"]},
+    extras_require={"test": ["ninja>=1.11.1","pytest>=7.1"]},
     python_requires=">=3.10",
 )
