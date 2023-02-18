@@ -69,3 +69,31 @@ def test_lr_fen_2d(init_fen, lr_fen):
 
     lr_data = b2.get2d(True)
     np.testing.assert_array_equal(np.fliplr(data), lr_data)
+
+
+@pytest.mark.parametrize(
+    "init_fen,moves,expected",
+    [
+        (
+            "3ak1NrC/4a4/4b4/9/9/9/9/9/2p1r4/3K5 r - 110 0 1",
+            ["8988", "7978"],
+            112,
+        ),
+        (
+            "3ak1NrC/4a4/4b4/9/9/9/9/9/2p1r4/3K5 r - 110 0 1",
+            ["6948"],
+            0,
+        ),
+        (
+            "3ak1NrC/4a4/4b4/9/9/9/9/9/2p1r4/3K5 r - 110 0 1",
+            ["6948", "4948", "8988"],
+            1,
+        ),
+    ],
+)
+def test_no_eat(init_fen, moves, expected):
+    board = xqcpp.XqBoard()
+    board.init_set(init_fen, True)
+    for move in moves:
+        board.do_move_str(move)
+    assert board.no_eat() == expected

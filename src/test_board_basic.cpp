@@ -160,6 +160,23 @@ TEST(BoardBasicTest, testNoEatx01)
     EXPECT_EQ(b.no_eat(), 116);
 }
 
+TEST(BoardBasicTest, testNoEatx02)
+{
+    Board b;
+    /// 默认不包含，但规范fen还是设置no eat
+    b.set_pieces("3ak1NrC/4a4/4b4/9/9/9/9/9/2p1r4/3K5 r - 110 0 1");
+    EXPECT_EQ(b.no_eat(), 110);
+    auto move1 = make_move("6948");
+    b.DoMove(move1);
+    EXPECT_EQ(b.no_eat(), 0);
+    auto move2 = make_move("4948");
+    b.DoMove(move2);
+    EXPECT_EQ(b.no_eat(), 0);
+    auto move3 = make_move("8988");
+    b.DoMove(move3);
+    EXPECT_EQ(b.no_eat(), 1);
+}
+
 // 棋子是否受到攻击威胁
 TEST(BoardBasicTest, testAttacked)
 {
