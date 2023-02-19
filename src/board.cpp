@@ -1090,11 +1090,15 @@ void Board::set_pieces(std::string str, bool verify, bool include_no_eat)
         }
         // }
         // 步数
-        // auto s = elems[5];
-        // if (s != "-" || s != "0")
-        // {
-        //     _set_steps(std::stoi(s));
-        // }
+        auto s = elems[5];
+        if (s == "0")
+        {
+            _set_steps(1);
+        }
+        else if (s != "-" && s != "0")
+        {
+            _set_steps(std::stoi(s));
+        }
     }
     if (ps.length() != NUM_INTERSECTION)
     {
@@ -2585,10 +2589,10 @@ void Board::_set_no_eat_num(int t)
     this->_no_eat = static_cast<size_t>(t);
 }
 
-// void Board::_set_steps(int t)
-// {
-//     this->_ply = static_cast<size_t>(t);
-// }
+void Board::_set_steps(int t)
+{
+    this->_ply = static_cast<size_t>(t);
+}
 
 bool Board::immediately_loss_once_moved(Move &move) const
 {

@@ -221,7 +221,7 @@ protected:
     void _set_no_eat_num(int t);
 
     // 设置步数
-    // void _set_steps(int t);
+    void _set_steps(int t);
 
     // 游戏结果
     void _ruling();

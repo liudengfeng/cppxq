@@ -97,3 +97,10 @@ def test_no_eat(init_fen, moves, expected):
     for move in moves:
         board.do_move_str(move)
     assert board.no_eat() == expected
+
+
+def test_steps():
+    init_fen = "3ak1NrC/4a4/4b4/9/9/9/9/9/2p1r4/3K5 r - 118 149 298"
+    board = xqcpp.XqBoard()
+    board.init_set(init_fen, True)
+    assert board.steps() == 298
