@@ -662,6 +662,27 @@ std::vector<std::vector<std::vector<int>>> Board::getActionFeature(int action)
     return res;
 }
 
+void Board::set_pieces_by_2d(std::vector<std::vector<int>> data, int to_play, int step, int continuous_uneaten)
+{
+    clear();
+    for (int y = 0; y < BOARD_HEIGHT; y++)
+    {
+        for (int x = 0; x < BOARD_WIDTH; x++)
+        {
+            auto c = Coord(x, y);
+            auto pid = data[y][x];
+            auto color = S_EMPTY ? pid == 0 : pid > 0 ? S_RED
+                                                      : S_BLACK;
+            auto p = static_cast<PieceType>(std::abs(pid));
+            set_pieces(c, color, p);
+        }
+    }
+    _next_player = S_RED ? to_play == 1 : S_BLACK;
+    _first_player = S_RED ? to_play == 1 : S_BLACK;
+    _ply = step;
+    _no_eat = continuous_uneaten;
+}
+
 std::vector<std::vector<int>> Board::get2d(bool lr)
 {
     if (lr)

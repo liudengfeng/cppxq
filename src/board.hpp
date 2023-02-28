@@ -473,6 +473,13 @@ public:
     /// @return 三维(14 * 10 * 9)整数列表。反映移动棋子及吃子编码特征
     std::vector<std::vector<std::vector<int>>> getActionFeature(int action);
 
+    /// @brief 使用棋子编号设置棋盘
+    /// @param data 2d棋子编码，单元数值代表棋子编号，0代表空白
+    /// @param to_play 下一步走子方 [1, 2]
+    /// @param steps 步数
+    /// @param continuous_uneaten 连续未吃子数量
+    void set_pieces_by_2d(std::vector<std::vector<int>> data, int to_play = S_RED, int steps = 1, int continuous_uneaten = 0);
+
     /// @brief 棋盘棋子数字表达
     /// @param lr 是否左右互换
     /// @return 二维(10 * 9)整数列表
