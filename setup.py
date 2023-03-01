@@ -51,8 +51,9 @@ class CMakeBuild(build_ext):
             f"-DCMAKE_BUILD_TYPE={cfg}",  # not used on MSVC, but no harm
             # NB:使用vcpkg管理包
             f"-Dfmt_DIR={vcpkg_dir}/x64-linux/share/fmt",  # fmt
-            f"-Dpybind11_DIR={vcpkg_dir}/x64-linux/share/pybind11",  # pybind1
-            f"-DGTest_DIR={vcpkg_dir}/x64-linux/share/gtest",  # pybind1
+            f"-Dpybind11_DIR={vcpkg_dir}/x64-linux/share/pybind11",  # pybind11
+            f"-DGTest_DIR={vcpkg_dir}/x64-linux/share/gtest",  # pybind11
+            # f"-DPython_INCLUDE_DIR={vcpkg_dir}/x64-linux/include/python3.10",  # pybind11
         ]
         build_args = []
         # Adding CMake arguments set as environment variable

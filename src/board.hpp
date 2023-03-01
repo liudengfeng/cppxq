@@ -8,10 +8,15 @@
 #include <random>
 #include <list>
 
+// #include <pybind11/pybind11.h>
+// #include <pybind11/numpy.h>
+
 #include "common.hpp"
 #include "utils.hpp"
 #include "move_maps.hpp"
 #include "hash_num.hpp"
+
+// namespace py = pybind11;
 
 using moveVec_t = std::vector<Move>;
 using hashVec_t = std::vector<uint64_t>;
@@ -473,12 +478,19 @@ public:
     /// @return 三维(14 * 10 * 9)整数列表。反映移动棋子及吃子编码特征
     std::vector<std::vector<std::vector<int>>> getActionFeature(int action);
 
-    /// @brief 使用棋子编号设置棋盘
-    /// @param data 2d棋子编码，单元数值代表棋子编号，0代表空白
-    /// @param to_play 下一步走子方 [1, 2]
-    /// @param steps 步数
-    /// @param continuous_uneaten 连续未吃子数量
-    void set_pieces_by_2d(std::vector<std::vector<int>> data, int to_play = S_RED, int steps = 1, int continuous_uneaten = 0);
+    // /// @brief 使用棋子编号设置棋盘
+    // /// @param data 棋子编码，单元数值代表棋子编号，0代表空白
+    // /// @param to_play 下一步走子方 [1, 2]
+    // /// @param steps 步数
+    // /// @param continuous_uneaten 连续未吃子数量
+    // void set_pieces_by_2d(const py::array_t<int> &data, int to_play = 1, int steps = 1, int continuous_uneaten = 0);
+
+    // /// @brief 使用棋子编号设置棋盘
+    // /// @param data 棋子编码列表，单元数值代表棋子编号，0代表空白
+    // /// @param to_play 下一步走子方 [1, 2]
+    // /// @param steps 步数
+    // /// @param continuous_uneaten 连续未吃子数量
+    // void set_pieces_by_list(const std::list<int> &data, int to_play = 1, int steps = 1, int continuous_uneaten = 0);
 
     /// @brief 棋盘棋子数字表达
     /// @param lr 是否左右互换

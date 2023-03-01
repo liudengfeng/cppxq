@@ -49,6 +49,30 @@ def test_2d(init_fen, expected):
     assert expected == actual
 
 
+# def test_set_by_list():
+#     data = np.array(
+#         [
+#             [0, 0, 3, 7, 0, 2, 0, 0, 0],
+#             [0, 0, -1, 0, 0, 0, 0, 0, 0],
+#             [0, 0, 0, 0, 0, 0, 0, 0, 0],
+#             [0, 0, 0, 6, 0, 0, 0, 0, 0],
+#             [0, 0, 0, 0, 0, 0, 0, 0, 0],
+#             [0, 0, -5, 0, -4, 0, 1, 0, 0],
+#             [0, 0, 0, 0, 0, 0, 0, 0, 0],
+#             [0, 0, 0, 0, -3, 0, 0, 0, 0],
+#             [0, 0, 0, 0, 0, 0, 0, 0, 0],
+#             [0, 0, 0, -2, -7, 0, 5, -6, 4],
+#         ]
+#     )
+#     pieces = data.flatten().tolist()
+#     assert len(pieces) == 90
+#     board = xqcpp.XqBoard()
+#     board.set_pieces_by_2d(pieces, 1, 1, 0)
+#     board.show_board()
+#     print(board.get_fen())
+#     # assert board.get_fen() == "3ak1NrC/9/4b4/9/2n1c1P2/9/3R5/9/2p6/2BK1A3 r - - 0 1"
+
+
 @pytest.mark.parametrize(
     "init_fen,lr_fen",
     [

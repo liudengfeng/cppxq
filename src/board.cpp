@@ -662,26 +662,55 @@ std::vector<std::vector<std::vector<int>>> Board::getActionFeature(int action)
     return res;
 }
 
-void Board::set_pieces_by_2d(std::vector<std::vector<int>> data, int to_play, int step, int continuous_uneaten)
-{
-    clear();
-    for (int y = 0; y < BOARD_HEIGHT; y++)
-    {
-        for (int x = 0; x < BOARD_WIDTH; x++)
-        {
-            auto c = Coord(x, y);
-            auto pid = data[y][x];
-            auto color = S_EMPTY ? pid == 0 : pid > 0 ? S_RED
-                                                      : S_BLACK;
-            auto p = static_cast<PieceType>(std::abs(pid));
-            set_pieces(c, color, p);
-        }
-    }
-    _next_player = S_RED ? to_play == 1 : S_BLACK;
-    _first_player = S_RED ? to_play == 1 : S_BLACK;
-    _ply = step;
-    _no_eat = continuous_uneaten;
-}
+// void Board::set_pieces_by_2d(const py::array_t<int> &data, int to_play, int steps, int continuous_uneaten)
+// {
+//     py::buffer_info buf = data.request();
+//     if (buf.ndim != 2 || buf.size != 90)
+//     {
+//         throw std::runtime_error("numpy.ndarray dims must be 2 and size muse be 90!");
+//     }
+//     clear();
+//     int *data_ptr = (int *)buf.ptr;
+//     for (int y = 0; y < BOARD_HEIGHT; y++)
+//     {
+//         for (int x = 0; x < BOARD_WIDTH; x++)
+//         {
+//             auto c = Coord(x, y);
+//             auto pid = data_ptr[y * buf.shape[1] + x];
+//             auto color = S_EMPTY ? pid == 0 : pid > 0 ? S_RED
+//                                                       : S_BLACK;
+//             auto p = static_cast<PieceType>(std::abs(pid));
+//             set_pieces(c, color, p);
+//         }
+//     }
+//     _next_player = S_RED ? to_play == 1 : S_BLACK;
+//     _first_player = S_RED ? to_play == 1 : S_BLACK;
+//     _ply = steps;
+//     _no_eat = continuous_uneaten;
+// }
+
+// void Board::set_pieces_by_list(const std::list<int> &data, int to_play, int steps, int continuous_uneaten)
+// {
+//     if (data.size() != 90)
+//     {
+//         throw std::runtime_error("Size of data must be 90!");
+//     }
+//     clear();
+//     int c = 0;
+//     for (int pid : data)
+//     {
+//         auto co = Coord(c);
+//         auto color = S_EMPTY ? pid == 0 : pid > 0 ? S_RED
+//                                                   : S_BLACK;
+//         auto p = static_cast<PieceType>(std::abs(pid));
+//         set_pieces(co, color, p);
+//         c += 1;
+//     }
+//     _next_player = S_RED ? to_play == 1 : S_BLACK;
+//     _first_player = S_RED ? to_play == 1 : S_BLACK;
+//     _ply = steps;
+//     _no_eat = continuous_uneaten;
+// }
 
 std::vector<std::vector<int>> Board::get2d(bool lr)
 {

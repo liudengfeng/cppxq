@@ -64,7 +64,8 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "complex": "cpp"
     },
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,

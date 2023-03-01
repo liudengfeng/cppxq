@@ -1,15 +1,9 @@
 #include "Pybind.hpp"
-#include <pybind11/iostream.h>
 
 void registerPy(pybind11::module &m)
 {
     namespace py = pybind11;
     m.doc() = "C++中国象棋包";
-    m.attr("stacked_observations") = NUM_OF_HISTORY;
-    // 14类棋子
-    m.attr("plane") = 14;
-    m.attr("height") = BOARD_HEIGHT;
-    m.attr("width") = BOARD_WIDTH;
     py::class_<Piece>(m, "Piece")
         .def_readonly("x", &Piece::x)
         .def_readonly("y", &Piece::y)
@@ -33,7 +27,8 @@ void registerPy(pybind11::module &m)
         .def("init_set", py::overload_cast<std::string, bool, bool>(&XqBoard::set_pieces), py::arg("str"), py::arg("verify") = true, py::arg("include_no_eat") = false, "初始化棋盘设置")
         .def("set_use_rule_flag", &XqBoard::set_use_rule_flag, "设置是否进行18步检测")
         .def("set_result", &XqBoard::SetResult, py::arg("int"), py::arg("reason") = "非法走子", "设定棋局结果")
-        .def("set_pieces_by_2d", &XqBoard::set_pieces_by_2d, "使用棋子编号设置棋盘")
+        // .def("set_pieces_by_2d", &XqBoard::set_pieces_by_2d, py::arg("data"), py::arg("to_play") = 1, py::arg("steps") = 1, py::arg("continuous_uneaten") = 0, "使用棋子编号设置棋盘")
+        // .def("set_pieces_by_list", &XqBoard::set_pieces_by_list, py::arg("data"), py::arg("to_play") = 1, py::arg("steps") = 1, py::arg("continuous_uneaten") = 0, "使用棋子编号设置棋盘")
         .def("set_player", py::overload_cast<std::string>(&XqBoard::SetPlayer), "初始下一步走子方")
         .def("steps", &XqBoard::steps)
         .def("no_eat", &XqBoard::no_eat, "连续未吃子数量")
