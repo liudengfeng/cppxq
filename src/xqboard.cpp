@@ -1833,7 +1833,8 @@ void XqBoard::step(Move &move)
     if (_result != 2)
     {
         auto msg = fmt::format("执行移动({})，但游戏已经结束", move.toString());
-        throw std::runtime_error(msg);
+        on_board_error(msg);
+        // throw std::runtime_error(msg);
     }
     // 走子
     DoMove(move);

@@ -10,8 +10,9 @@ Chinese chess game(xiangqi)
 ```bash
 pip install --upgrade setuptools
 git clone https://github.com/liudengfeng/xqcpp.git
-cd xqcpp
-pip install .
+# With the setup.py file included in this example, 
+# the pip install command will invoke CMake and build the pybind11 module as specified in CMakeLists.txt.
+pip install ./xqcpp
 
 # test 
 pip install pytest pytest-html
