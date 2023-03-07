@@ -18,7 +18,7 @@
 // 是否显示调试结果
 constexpr bool USE_DEBUG = false;
 // 是否显示错误
-constexpr bool VIEW_ERROR = false;
+constexpr bool VIEW_ERROR = true;
 
 // 分类棋子价值
 constexpr int KING_VALUE = 1200;
