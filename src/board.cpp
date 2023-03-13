@@ -426,7 +426,7 @@ std::string Board::board_view_string(const bool viewDetail, const std::string &t
             }
             else
             {
-                res += fmt::format(fg(fmt::color::gainsboro), "{}", getCNSymbol(p, color));
+                res += fmt::format(fg(fmt::color::golden_rod), "{}", getCNSymbol(p, color));
             }
         }
         res += fmt::format(fg(fmt::color::ivory), "{}", "\n");
