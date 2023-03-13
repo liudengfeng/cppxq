@@ -59,7 +59,7 @@ void registerPy(pybind11::module &m)
              py::call_guard<py::scoped_ostream_redirect,
                             py::scoped_estream_redirect>());
 
-    m.def("movestr2action", &str2action, "移动字符串转换为其映射序号")
-        .def("action2movestr", &action2str, "将映射序号转换为代表移动的4位数字符串")
+    m.def("m2a", &str2action, "移动字符串转换为其映射序号")
+        .def("a2m", &action2str, "将映射序号转换为代表移动的4位数字符串")
         .def("move2lr", &move2lr, "移动左右位置互换后的4位数字符串");
 }
