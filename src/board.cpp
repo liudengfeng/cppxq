@@ -422,11 +422,11 @@ std::string Board::board_view_string(const bool viewDetail, const std::string &t
             }
             else if (color == S_BLACK)
             {
-                res += fmt::format(fg(fmt::color::dark_green), "{}", getCNSymbol(p, color));
+                res += fmt::format(fg(fmt::color::lime_green), "{}", getCNSymbol(p, color));
             }
             else
             {
-                res += fmt::format(fg(fmt::color::golden_rod), "{}", getCNSymbol(p, color));
+                res += fmt::format(fg(fmt::color::sky_blue), "{}", getCNSymbol(p, color));
             }
         }
         res += fmt::format(fg(fmt::color::ivory), "{}", "\n");

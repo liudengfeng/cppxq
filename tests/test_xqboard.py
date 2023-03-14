@@ -127,5 +127,5 @@ def test_steps():
     init_fen = "3ak1NrC/4a4/4b4/9/9/9/9/9/2p1r4/3K5 r - 118 149 298"
     board = xqcpp.XqBoard()
     board.init_set(init_fen, True)
-    board.show_board()
+    # board.show_board()
     assert board.steps() == 298
