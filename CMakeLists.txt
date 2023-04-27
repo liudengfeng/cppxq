@@ -48,12 +48,12 @@ target_link_libraries(muzeroxq PRIVATE
     fmt::fmt-header-only
 )
 
-pybind11_add_module(xqcpp src/pybind_module.cpp)
-target_link_libraries(xqcpp PRIVATE
+pybind11_add_module(cppxq src/pybind_module.cpp)
+target_link_libraries(cppxq PRIVATE
     muzeroxq
 )
 
-target_link_libraries(xqcpp PRIVATE
+target_link_libraries(cppxq PRIVATE
     pybind11::lto pybind11::embed pybind11::module
     $<BUILD_INTERFACE:${PYTHON_LIBRARIES}>
     fmt::fmt-header-only

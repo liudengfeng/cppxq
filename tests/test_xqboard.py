@@ -1,4 +1,4 @@
-import xqcpp
+import cppxq
 import pytest
 import numpy as np
 
@@ -13,7 +13,7 @@ import numpy as np
     ],
 )
 def test_lr_fen(init_fen, expected):
-    board = xqcpp.XqBoard()
+    board = cppxq.XqBoard()
     board.init_set(init_fen, True)
     actual = board.get_lr_fen()
     # print(actual)
@@ -42,7 +42,7 @@ def test_lr_fen(init_fen, expected):
     ],
 )
 def test_2d(init_fen, expected):
-    board = xqcpp.XqBoard()
+    board = cppxq.XqBoard()
     board.init_set(init_fen, True)
     actual = board.get2d()
     # print(actual)
@@ -66,7 +66,7 @@ def test_2d(init_fen, expected):
 #     )
 #     pieces = data.flatten().tolist()
 #     assert len(pieces) == 90
-#     board = xqcpp.XqBoard()
+#     board = cppxq.XqBoard()
 #     board.set_pieces_by_2d(pieces, 1, 1, 0)
 #     board.show_board()
 #     print(board.get_fen())
@@ -83,10 +83,10 @@ def test_2d(init_fen, expected):
     ],
 )
 def test_lr_fen_2d(init_fen, lr_fen):
-    board = xqcpp.XqBoard()
+    board = cppxq.XqBoard()
     board.init_set(init_fen, True)
     actual = board.get2d(True)
-    b2 = xqcpp.XqBoard()
+    b2 = cppxq.XqBoard()
     b2.init_set(lr_fen, True)
     data = b2.get2d()
     np.testing.assert_array_equal(data, actual)
@@ -116,7 +116,7 @@ def test_lr_fen_2d(init_fen, lr_fen):
     ],
 )
 def test_no_eat(init_fen, moves, expected):
-    board = xqcpp.XqBoard()
+    board = cppxq.XqBoard()
     board.init_set(init_fen, True)
     for move in moves:
         board.do_move_str(move)
@@ -125,7 +125,7 @@ def test_no_eat(init_fen, moves, expected):
 
 def test_steps():
     init_fen = "3ak1NrC/4a4/4b4/9/9/9/9/9/2p1r4/3K5 r - 118 149 298"
-    board = xqcpp.XqBoard()
+    board = cppxq.XqBoard()
     board.init_set(init_fen, True)
     # board.show_board()
     assert board.steps() == 298

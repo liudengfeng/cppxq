@@ -132,13 +132,13 @@ class CMakeBuild(build_ext):
 # The information here can also be placed in setup.cfg - better separation of
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
-    name="xqcpp",
+    name="cppxq",
     version="1.0.0",
     author="LDF",
     author_email="liudengfeng_sd@outlook.com",
     description="使用pybind11、CMake构建中国象棋工具包",
     long_description="使用pybind11、CMake构建中国象棋工具包",
-    ext_modules=[CMakeExtension("xqcpp")],
+    ext_modules=[CMakeExtension("cppxq")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
     extras_require={"test": ["ninja>=1.11.1", "pytest>=7.1"]},

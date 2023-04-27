@@ -2,7 +2,7 @@
 
 #include "Pybind.hpp"
 
-PYBIND11_MODULE(xqcpp, m)
+PYBIND11_MODULE(cppxq, m)
 {
   registerPy(m);
 }
