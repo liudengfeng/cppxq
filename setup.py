@@ -137,7 +137,7 @@ setup(
     author="LDF",
     author_email="liudengfeng_sd@outlook.com",
     description="使用pybind11、CMake构建中国象棋工具包",
-    long_description="",
+    long_description="使用pybind11、CMake构建中国象棋工具包",
     ext_modules=[CMakeExtension("xqcpp")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
